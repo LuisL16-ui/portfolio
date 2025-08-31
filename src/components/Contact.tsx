@@ -28,7 +28,7 @@ import {
 } from '@mui/icons-material';
 import { createTitleStyles, createDividerStyles } from '../styles/cardStyles';
 
-const SCRIPT_URL = "https://workers-playground-dark-term-90af.luislopezp913.workers.dev";
+const SCRIPT_URL = "https://workers-playground-dark-term-90af.luislopezp913.workers.dev/api";
 
 
 const Contact = () => { 
