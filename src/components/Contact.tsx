@@ -28,9 +28,10 @@ import {
 } from '@mui/icons-material';
 import { createTitleStyles, createDividerStyles } from '../styles/cardStyles';
 
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyY3gAKPDiepXI3EiWqplpSv-Rq7tQAqG3f6NcoHvL_QLO39tFRBPA-eUHL7fLUXtU/exec';
+const SCRIPT_URL = "https://workers-playground-dark-term-90af.luislopezp913.workers.dev";
 
-const Contact = () => {
+
+const Contact = () => { 
   const theme = useTheme();
   const titleStyles = createTitleStyles(theme);
   const dividerStyles = createDividerStyles(theme);
