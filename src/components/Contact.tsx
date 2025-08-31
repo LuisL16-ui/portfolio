@@ -380,7 +380,7 @@ const Contact = () => {
                           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                             {turnstileLoaded ? (
                               <Turnstile
-                                siteKey="1x00000000000000000000AA" // Test key temporalmente para debug
+                                siteKey="0x4AAAAAABw8YfT1CfP680X4" // Production Site Key
                                 onSuccess={(token) => {
                                   console.log('Turnstile success:', token);
                                   setTurnstileToken(token);
@@ -389,7 +389,7 @@ const Contact = () => {
                                 onError={(error) => {
                                   console.error('Turnstile error:', error);
                                   setTurnstileToken(null);
-                                  setCaptchaError('Error en la verificación. Inténtalo de nuevo.');
+                                  setCaptchaError('Error en la verificación. Verifica que el dominio esté configurado en Cloudflare.');
                                 }}
                                 onExpire={() => {
                                   console.log('Turnstile expired');
