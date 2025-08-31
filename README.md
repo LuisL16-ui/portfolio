@@ -1,69 +1,90 @@
-# React + TypeScript + Vite
+# Portfolio Personal - José Luis López
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un portfolio moderno y responsivo desarrollado con React, TypeScript, Material-UI y Framer Motion.
 
-Currently, two official plugins are available:
+## 🚀 Deployment en GitHub Pages
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este proyecto está configurado para ser desplegado automáticamente en GitHub Pages usando `gh-pages`.
 
-## Expanding the ESLint configuration
+### URL del Portfolio
+🌐 **[https://luisl16-ui.github.io/portfolio](https://luisl16-ui.github.io/portfolio)**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Comandos para Deployment
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# Desarrollo local
+npm run dev
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+# Build de producción
+npm run build
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Preview del build
+npm run preview
+
+# Deploy a GitHub Pages
+npm run deploy
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Configuración de GitHub Pages
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. El proyecto usa `gh-pages` para deployment automático
+2. Los archivos se publican en la rama `gh-pages`
+3. La configuración de base path está en `vite.config.ts`
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Estructura del Proyecto
+
+- **React 19** con TypeScript
+- **Material-UI 7** para componentes
+- **Framer Motion** para animaciones
+- **Vite** como bundler
+- **GitHub Pages** para hosting
+
+## 🛠️ Tecnologías Utilizadas
+
+- React + TypeScript
+- Material-UI
+- Framer Motion
+- Vite
+- ESLint
+- GitHub Pages
+
+## 📁 Estructura de Carpetas
+
+```
+src/
+├── components/          # Componentes React
+├── styles/             # Estilos y temas
+├── assets/             # Recursos estáticos
+└── theme.ts           # Configuración de temas
+
+public/                 # Archivos públicos
+dist/                  # Build de producción (auto-generado)
+```
+
+## 🔧 Desarrollo Local
+
+```bash
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo
+npm run dev
+
+# Build para producción
+npm run build
+
+# Preview del build
+npm run preview
+```
+
+## 📝 Notas Importantes
+
+- El portfolio incluye temas claro y oscuro
+- Todas las animaciones están optimizadas para rendimiento
+- El diseño es completamente responsivo
+- Los archivos PDF del CV están en la carpeta `public/`
+
+---
+
+**Desarrollado por José Luis López Perez** 💻
 ```
