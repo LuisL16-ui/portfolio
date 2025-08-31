@@ -52,18 +52,32 @@ const Contact = () => {
     const existingScript = document.querySelector('script[src*="turnstile"]');
     
     if (!window.turnstile && !turnstileLoaded && !existingScript) {
+      console.log('Loading Turnstile script...');
       const script = document.createElement('script');
       script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
       script.async = true;
       script.defer = true;
-      script.onload = () => setTurnstileLoaded(true);
-      script.onerror = () => {
-        console.error('Failed to load Turnstile script');
+      script.onload = () => {
+        console.log('Turnstile script loaded successfully');
+        setTurnstileLoaded(true);
+      };
+      script.onerror = (error) => {
+        console.error('Failed to load Turnstile script:', error);
         setTurnstileLoaded(false);
+        setCaptchaError('Error al cargar la verificación de seguridad.');
       };
       document.head.appendChild(script);
     } else if (window.turnstile) {
+      console.log('Turnstile already available');
       setTurnstileLoaded(true);
+    } else if (existingScript) {
+      console.log('Turnstile script already exists, waiting for load...');
+      // Wait a bit for existing script to load
+      setTimeout(() => {
+        if (window.turnstile) {
+          setTurnstileLoaded(true);
+        }
+      }, 1000);
     }
   }, []); // Remove turnstileLoaded dependency to prevent re-runs
 
@@ -364,21 +378,30 @@ const Contact = () => {
                             Verificación de seguridad:
                           </Typography>
                           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                            <Turnstile
-                              siteKey="0x4AAAAAABw8YfT1CfP680X4" // Reemplaza con tu site key real de Cloudflare
-                              onSuccess={(token) => {
-                                setTurnstileToken(token);
-                                setCaptchaError('');
-                              }}
-                              onError={() => {
-                                setTurnstileToken(null);
-                                setCaptchaError('Error en la verificación. Inténtalo de nuevo.');
-                              }}
-                              onExpire={() => {
-                                setTurnstileToken(null);
-                                setCaptchaError('La verificación ha expirado. Por favor, refresca.');
-                              }}
-                            />
+                            {turnstileLoaded ? (
+                              <Turnstile
+                                siteKey="1x00000000000000000000AA" // Test key temporalmente para debug
+                                onSuccess={(token) => {
+                                  console.log('Turnstile success:', token);
+                                  setTurnstileToken(token);
+                                  setCaptchaError('');
+                                }}
+                                onError={(error) => {
+                                  console.error('Turnstile error:', error);
+                                  setTurnstileToken(null);
+                                  setCaptchaError('Error en la verificación. Inténtalo de nuevo.');
+                                }}
+                                onExpire={() => {
+                                  console.log('Turnstile expired');
+                                  setTurnstileToken(null);
+                                  setCaptchaError('La verificación ha expirado. Por favor, refresca.');
+                                }}
+                              />
+                            ) : (
+                              <Typography variant="body2" color="text.secondary">
+                                Cargando verificación de seguridad...
+                              </Typography>
+                            )}
                             {captchaError && (
                               <Typography variant="caption" color="error">
                                 {captchaError}
