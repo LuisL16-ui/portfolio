@@ -52,27 +52,22 @@ const Contact = () => {
     const existingScript = document.querySelector('script[src*="turnstile"]');
     
     if (!window.turnstile && !turnstileLoaded && !existingScript) {
-      console.log('Loading Turnstile script...');
       const script = document.createElement('script');
       script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
       script.async = true;
       script.defer = true;
       script.onload = () => {
-        console.log('Turnstile script loaded successfully');
         setTurnstileLoaded(true);
       };
-      script.onerror = (error) => {
-        console.error('Failed to load Turnstile script:', error);
+      script.onerror = () => {
         setTurnstileLoaded(false);
         setCaptchaError('Error al cargar la verificación de seguridad.');
       };
       document.head.appendChild(script);
     } else if (window.turnstile) {
-      console.log('Turnstile already available');
       setTurnstileLoaded(true);
     } else if (existingScript) {
-      console.log('Turnstile script already exists, waiting for load...');
-      // Wait a bit for existing script to load
+      // Wait for existing script to load
       setTimeout(() => {
         if (window.turnstile) {
           setTurnstileLoaded(true);
@@ -380,19 +375,16 @@ const Contact = () => {
                           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                             {turnstileLoaded ? (
                               <Turnstile
-                                siteKey="0x4AAAAAABw8YfT1CfP680X4" // Production Site Key
+                                siteKey="0x4AAAAAABw8YfT1CfP680X4"
                                 onSuccess={(token) => {
-                                  console.log('Turnstile success:', token);
                                   setTurnstileToken(token);
                                   setCaptchaError('');
                                 }}
-                                onError={(error) => {
-                                  console.error('Turnstile error:', error);
+                                onError={() => {
                                   setTurnstileToken(null);
-                                  setCaptchaError('Error en la verificación. Verifica que el dominio esté configurado en Cloudflare.');
+                                  setCaptchaError('Error en la verificación. Inténtalo de nuevo.');
                                 }}
                                 onExpire={() => {
-                                  console.log('Turnstile expired');
                                   setTurnstileToken(null);
                                   setCaptchaError('La verificación ha expirado. Por favor, refresca.');
                                 }}
