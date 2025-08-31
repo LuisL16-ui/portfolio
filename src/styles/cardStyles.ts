@@ -1,0 +1,143 @@
+import type { Theme } from '@mui/material/styles';
+
+// Estilos comunes para cards con glassmorphism
+export const createCardStyles = (theme: Theme) => ({
+  // Card principal con glassmorphism
+  glassCard: {
+    p: 2,
+    height: '100%',
+    background: theme.palette.mode === 'dark'
+      ? 'linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(51, 65, 85, 0.9) 100%)'
+      : 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.9) 100%)',
+    backdropFilter: 'blur(10px)',
+    border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.1)'}`,
+    '&:hover': {
+      boxShadow: theme.palette.mode === 'dark'
+        ? '0 8px 32px rgba(59, 130, 246, 0.3)'
+        : '0 8px 32px rgba(59, 130, 246, 0.15)',
+      transform: 'translateY(-2px)',
+    },
+    transition: 'all 0.3s ease-in-out'
+  },
+
+  // Card con margin bottom
+  glassCardWithMargin: {
+    p: 2,
+    height: '100%',
+    background: theme.palette.mode === 'dark'
+      ? 'linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(51, 65, 85, 0.9) 100%)'
+      : 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.9) 100%)',
+    backdropFilter: 'blur(10px)',
+    border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.1)'}`,
+    '&:hover': {
+      boxShadow: theme.palette.mode === 'dark'
+        ? '0 8px 32px rgba(59, 130, 246, 0.3)'
+        : '0 8px 32px rgba(59, 130, 246, 0.15)',
+      transform: 'translateY(-2px)',
+    },
+    transition: 'all 0.3s ease-in-out',
+    mb: 5
+  },
+
+  // Card centrada
+  glassCenterCard: {
+    p: 2,
+    height: '100%',
+    background: theme.palette.mode === 'dark'
+      ? 'linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(51, 65, 85, 0.9) 100%)'
+      : 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.9) 100%)',
+    backdropFilter: 'blur(10px)',
+    border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.1)'}`,
+    '&:hover': {
+      boxShadow: theme.palette.mode === 'dark'
+        ? '0 8px 32px rgba(59, 130, 246, 0.3)'
+        : '0 8px 32px rgba(59, 130, 246, 0.15)',
+      transform: 'translateY(-2px)',
+    },
+    transition: 'all 0.3s ease-in-out',
+    textAlign: 'center'
+  },
+
+  // Tabs paper
+  tabsPaper: {
+    p: 2,
+    mb: 6,
+    background: theme.palette.mode === 'dark'
+      ? 'linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.95) 100%)'
+      : 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+    border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.1)'}`
+  },
+
+  // Cards para proyectos principales (featured projects)
+  featuredProjectCard: {
+    display: 'flex',
+    background: theme.palette.mode === 'dark'
+      ? 'linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.95) 100%)'
+      : 'white',
+    border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.1)'}`,
+    overflow: 'hidden',
+    '&:hover': {
+      boxShadow: theme.palette.mode === 'dark'
+        ? '0 20px 60px rgba(59, 130, 246, 0.3)'
+        : '0 20px 60px rgba(59, 130, 246, 0.15)',
+      transform: 'translateY(-4px)',
+    },
+    transition: 'all 0.4s ease-in-out'
+  },
+
+  // Cards para proyectos normales (grid projects)
+  projectCard: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+    position: 'relative',
+    background: theme.palette.mode === 'dark'
+      ? 'linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.95) 100%)'
+      : 'white',
+    border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.1)'}`,
+    overflow: 'hidden',
+    '&:hover': {
+      boxShadow: theme.palette.mode === 'dark'
+        ? '0 12px 40px rgba(59, 130, 246, 0.3)'
+        : '0 12px 40px rgba(59, 130, 246, 0.15)',
+      transform: 'translateY(-8px)',
+      '& .project-image': {
+        transform: 'scale(1.05)',
+      }
+    },
+    transition: 'all 0.3s ease-in-out'
+  },
+
+  // Paper con gradiente
+  gradientPaper: {
+    p: 4,
+    background: theme.palette.mode === 'dark'
+      ? 'linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.95) 100%)'
+      : 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+    border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.1)'}`,
+    borderRadius: 2
+  }
+});
+
+// Estilos para títulos con gradiente
+export const createTitleStyles = (theme: Theme) => ({
+  gradientTitle: {
+    background: theme.palette.gradient?.primary || 'linear-gradient(135deg, #1F2937 0%, #3B82F6 100%)',
+    backgroundClip: 'text',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    mb: 2
+  }
+});
+
+// Estilos para divisores
+export const createDividerStyles = (theme: Theme) => ({
+  gradientDivider: {
+    width: 80,
+    height: 4,
+    background: theme.palette.gradient?.primary || 'linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)',
+    mx: 'auto',
+    borderRadius: 2,
+    mb: 3
+  }
+});
