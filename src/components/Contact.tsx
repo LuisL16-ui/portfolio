@@ -28,7 +28,7 @@ import {
 } from '@mui/icons-material';
 import { createTitleStyles, createDividerStyles } from '../styles/cardStyles';
 
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw23hvgQusaLIe4cJBz93emEUf7qCUiYrRqEa0ubMkwEDKmUJ3ASWCmumeY9mZdoCMw/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyY3gAKPDiepXI3EiWqplpSv-Rq7tQAqG3f6NcoHvL_QLO39tFRBPA-eUHL7fLUXtU/exec';
 
 const Contact = () => {
   const theme = useTheme();
