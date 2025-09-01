@@ -77,7 +77,7 @@ const Projects = () => {
       image: "https://imgs.search.brave.com/vvfZfG06PGYuoz-7mGPBGZuOXanMgyL8RabOdAZaGPg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/dmVjdG9yLWdyYXRp/cy9mb25kby1wYW50/YWxsYS1uZW9uLXBy/b3hpbWFtZW50ZV8y/My0yMTQ4ODkxMTc5/LmpwZz9zZW10PWFp/c19oeWJyaWQmdz03/NDA",
       technologies: ["PostgreSQL", "SQL", "Node.js", "Database Design"],
       category: "academic",
-      role: "Database Developer",
+      role: "Database",
       contribution: "Diseño de esquema de base de datos, implementación de consultas complejas y optimización de rendimiento.",
       github: "#",
       demo: "#",
