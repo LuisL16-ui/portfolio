@@ -186,9 +186,9 @@ const Contact = () => {
                     <Paper key={index} sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, cursor: 'pointer', transition: '0.3s', '&:hover': { transform: 'translateY(-3px)', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' } }} component="a" href={info.href} target="_blank" rel="noopener noreferrer">
                       <Avatar sx={{ bgcolor: 'primary.main', color: 'white' }}>{<info.icon />}</Avatar>
                       <Box>
-                        <Typography variant="subtitle1" fontWeight={600}>{info.label}</Typography>
-                        <Typography variant="body2">{info.value}</Typography>
-                        <Typography variant="caption" color="text.secondary">{info.description}</Typography>
+                      <Typography variant="subtitle1" fontWeight={600} sx={{ textDecoration: 'none' }}>{info.label}</Typography>
+                      <Typography variant="body2" sx={{ textDecoration: 'none' }}>{info.value}</Typography>
+                      <Typography variant="caption" color="text.secondary" sx={{ textDecoration: 'none' }}>{info.description}</Typography>
                       </Box>
                     </Paper>
                   ))}
