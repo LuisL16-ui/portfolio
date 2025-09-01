@@ -121,15 +121,15 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: GitHub, label: "GitHub", href: "https://github.com/joseluislopez", username: "@joseluislopez", color: "#333" },
-    { icon: LinkedIn, label: "LinkedIn", href: "https://linkedin.com/in/joseluislopez", username: "/in/joseluislopez", color: "#0077B5" },
-    { icon: Twitter, label: "Twitter", href: "https://twitter.com/joseluislopez", username: "@joseluislopez", color: "#1DA1F2" }
+    { icon: GitHub, label: "GitHub", href: "#", username: "#", color: "#333" },
+    { icon: LinkedIn, label: "LinkedIn", href: "#", username: "#", color: "#0077B5" },
+    { icon: Twitter, label: "Twitter", href: "#", username: "#", color: "#1DA1F2" }
   ];
 
   const quickActions = [
-    { icon: Chat, title: "Chat rápido", description: "Envíame un mensaje directo", action: "Abrir WhatsApp", href: "https://wa.me/6674042841", color: "#25D366" },
+    { icon: Chat, title: "Chat rápido", description: "Envíame un mensaje directo", action: "Abrir WhatsApp", href: "https://wa.me/526674042841", color: "#25D366" },
     { icon: Event, title: "Reunión virtual", description: "Agenda una videollamada", action: "Programar reunión", href: "#", color: "#3B82F6" },
-    { icon: Email, title: "Consulta por email", description: "Para proyectos complejos", action: "Enviar email", href: "mailto:joseluislopezperez@email.com", color: "#8B5CF6" }
+    { icon: Email, title: "Consulta por email", description: "Para proyectos", action: "Enviar email", href: "mailto:joselp.02@outlook.com", color: "#8B5CF6" }
   ];
 
   return (
@@ -201,12 +201,12 @@ const Contact = () => {
                 <Typography variant="h5" gutterBottom>Acciones rápidas</Typography>
                 <Stack spacing={2}>
                   {quickActions.map((action, index) => (
-                    <Paper key={index} sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, borderLeft: `4px solid ${action.color}`, transition: '0.3s', cursor: 'pointer', '&:hover': { transform: 'translateX(5px)', backgroundColor: theme.palette.action.hover } }} component="a" href={action.href} target="_blank" rel="noopener noreferrer">
+                    <Paper key={index} sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, borderLeft: `4px solid ${action.color}`, transition: '0.3s', cursor: 'pointer', textDecoration: 'none', '&:hover': { transform: 'translateX(5px)', backgroundColor: theme.palette.action.hover } }} component="a" href={action.href} target="_blank" rel="noopener noreferrer">
                       <Avatar sx={{ bgcolor: action.color, color: 'white' }}>{<action.icon />}</Avatar>
                       <Box>
-                        <Typography variant="subtitle1" fontWeight={600}>{action.title}</Typography>
-                        <Typography variant="body2" color="text.secondary">{action.description}</Typography>
-                        <Typography variant="caption" color="primary">{action.action}</Typography>
+                      <Typography variant="subtitle1" fontWeight={600} sx={{ textDecoration: 'none' }}>{action.title}</Typography>
+                      <Typography variant="body2" color="text.secondary" sx={{ textDecoration: 'none' }}>{action.description}</Typography>
+                      <Typography variant="caption" color="primary" sx={{ textDecoration: 'none' }}>{action.action}</Typography>
                       </Box>
                     </Paper>
                   ))}
