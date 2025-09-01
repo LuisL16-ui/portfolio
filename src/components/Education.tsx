@@ -15,7 +15,9 @@ import {
   Paper,
   Divider,
   Button,
-  useTheme
+  useTheme,
+  Modal,
+  IconButton
 } from '@mui/material';
 import {
   School,
@@ -23,14 +25,39 @@ import {
   DateRange,
   LocationOn,
   Launch,
-  CheckCircle
+  CheckCircle,
+  Visibility,
+  Close
 } from '@mui/icons-material';
 import { createCardStyles, createTitleStyles } from '../styles/cardStyles';
+import { useState } from 'react';
 
 const Education = () => {
   const theme = useTheme();
   const cardStyles = createCardStyles(theme);
   const titleStyles = createTitleStyles(theme);
+  
+  // Estado para el modal de previsualización
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<{
+    src: string;
+    alt: string;
+    title: string;
+  } | null>(null);
+
+  const handleImageClick = (cert: any) => {
+    setSelectedImage({
+      src: cert.badge,
+      alt: `Certificado: ${cert.name}`,
+      title: cert.name
+    });
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setSelectedImage(null);
+  };
   
   const education = [
     {
@@ -69,36 +96,36 @@ const Education = () => {
   const certifications = [
     {
       id: 1,
-      name: "Desarrollo con Node.js y TypeScript",
+      name: "JavaScript Moderno",
       issuer: "Aprendizaje autodidacta",
       date: "2024",
-      credentialId: "AUTO-2024-001",
-      description: "Desarrollo de habilidades en backend con Node.js y TypeScript",
-      skills: ["Node.js", "TypeScript", "Express", "API Development"],
-      link: "#",
-      badge: "?"
+      credentialId: "UC-0c2da7a5-2af4-4b35-a976-18172db03640",
+      description: "Desarrollo de habilidades en JavaScript",
+      skills: ["JavaScript","DOM","Fetch API", "Async/Await","localStorage"],
+      link: "https://www.udemy.com/certificate/UC-0c2da7a5-2af4-4b35-a976-18172db03640/",
+      badge: "/portfolio/UC-0c2da7a5-2af4-4b35-a976-18172db03640.jpg"
     },
     {
       id: 2,
-      name: "Desarrollo Frontend con React",
+      name: "Desarrollo web con Node.js",
       issuer: "Aprendizaje autodidacta",
-      date: "2023",
-      credentialId: "AUTO-2023-001", 
-      description: "Dominio de React para desarrollo de interfaces de usuario",
-      skills: ["React", "JavaScript", "Material-UI", "Frontend Development"],
-      link: "#",
-      badge: "?"
+      date: "2025",
+      credentialId: "UC-39f63f80-0d6e-465f-b461-78d131b9a2ef",
+      description: "Dominio de Node.js para desarrollo de aplicaciones web",
+      skills: ["Node.js", "Express", "MongoDB","MySQL","PostgreSQL","REST API","ORMs"],
+      link: "https://www.udemy.com/certificate/UC-39f63f80-0d6e-465f-b461-78d131b9a2ef/",
+      badge: "/portfolio/UC-39f63f80-0d6e-465f-b461-78d131b9a2ef.jpg"
     },
     {
       id: 3,
-      name: "Bases de Datos PostgreSQL",
-      issuer: "Práctica profesional",
-      date: "2024",
-      credentialId: "PRAC-2024-001",
-      description: "Experiencia trabajando con PostgreSQL en proyectos reales",
-      skills: ["PostgreSQL", "SQL", "Database Design", "Data Management"],
+      name: "###",
+      issuer: "###",
+      date: "####",
+      credentialId: "###",
+      description: "##",
+      skills: ["##", "##"],
       link: "#",
-      badge: "?"
+      badge: "https://imgs.search.brave.com/vvfZfG06PGYuoz-7mGPBGZuOXanMgyL8RabOdAZaGPg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/dmVjdG9yLWdyYXRp/cy9mb25kby1wYW50/YWxsYS1uZW9uLXBy/b3hpbWFtZW50ZV8y/My0yMTQ4ODkxMTc5/LmpwZz9zZW10PWFp/c19oeWJyaWQmdz03/NDA"
     },
   ];
 
@@ -383,17 +410,108 @@ const Education = () => {
                   <CardContent sx={{ p: 3, textAlign: 'center', flexGrow: 1 }}>
                     {/* Badge and Title */}
                     <Box sx={{ mb: 2 }}>
-                      <Typography 
-                        variant="h3" 
-                        sx={{ 
-                          mb: 1,
-                          filter: theme.palette.mode === 'dark' 
-                            ? 'brightness(1.2) contrast(1.1)'
-                            : 'none'
+                      <Box
+                        sx={{
+                          width: 120,
+                          height: 80,
+                          mx: 'auto',
+                          mb: 2,
+                          borderRadius: 2,
+                          overflow: 'hidden',
+                          boxShadow: theme.palette.mode === 'dark' 
+                            ? '0 4px 12px rgba(59, 130, 246, 0.2)'
+                            : '0 4px 12px rgba(0, 0, 0, 0.1)',
+                          border: `2px solid ${theme.palette.mode === 'dark' ? 'rgba(59, 130, 246, 0.3)' : 'rgba(59, 130, 246, 0.2)'}`,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          backgroundColor: theme.palette.mode === 'dark' ? 'rgba(59, 130, 246, 0.1)' : 'rgba(59, 130, 246, 0.05)',
+                          position: 'relative',
+                          cursor: 'pointer',
+                          transition: 'all 0.3s ease-in-out',
+                          '&:hover': {
+                            transform: 'scale(1.05)',
+                            boxShadow: theme.palette.mode === 'dark' 
+                              ? '0 8px 24px rgba(59, 130, 246, 0.3)'
+                              : '0 8px 24px rgba(0, 0, 0, 0.15)',
+                            '& .hover-overlay': {
+                              opacity: 1
+                            }
+                          }
                         }}
+                        onClick={() => handleImageClick(cert)}
                       >
-                        {cert.badge}
-                      </Typography>
+                        <img
+                          src={cert.badge}
+                          alt={`Certificado: ${cert.name}`}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover'
+                          }}
+                          onLoad={() => {
+                            console.log(`Imagen cargada correctamente: ${cert.badge}`);
+                          }}
+                          onError={(e) => {
+                            console.error(`Error al cargar imagen: ${cert.badge}`);
+                            const target = e.currentTarget as HTMLImageElement;
+                            target.style.display = 'none';
+                            const parent = target.parentElement;
+                            if (parent) {
+                              parent.innerHTML = `
+                                <div style="
+                                  width: 100%; 
+                                  height: 100%; 
+                                  display: flex; 
+                                  align-items: center; 
+                                  justify-content: center; 
+                                  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+                                  color: white;
+                                  font-size: 24px;
+                                  font-weight: bold;
+                                  flex-direction: column;
+                                  text-align: center;
+                                ">
+                                  <div style="font-size: 32px; margin-bottom: 4px;">🏆</div>
+                                  <div style="font-size: 10px;">Certificado</div>
+                                </div>
+                              `;
+                            }
+                          }}
+                        />
+                        
+                        {/* Overlay de hover */}
+                        <Box
+                          className="hover-overlay"
+                          sx={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexDirection: 'column',
+                            opacity: 0,
+                            transition: 'opacity 0.3s ease-in-out'
+                          }}
+                        >
+                          <Visibility sx={{ color: 'white', fontSize: 24, mb: 0.5 }} />
+                          <Typography
+                            variant="caption"
+                            sx={{
+                              color: 'white',
+                              fontWeight: 600,
+                              textTransform: 'uppercase',
+                              letterSpacing: 1
+                            }}
+                          >
+                            Ver
+                          </Typography>
+                        </Box>
+                      </Box>
                       <Typography 
                         variant="h6" 
                         fontWeight={700} 
@@ -480,15 +598,17 @@ const Education = () => {
                       size="small"
                       startIcon={<Launch />}
                       href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       sx={{
-                        borderColor: 'primary.main',
-                        color: 'primary.main',
-                        '&:hover': {
-                          backgroundColor: 'primary.main',
-                          color: 'white',
-                          transform: 'translateY(-2px)',
-                        },
-                        transition: 'all 0.3s ease-in-out'
+                      borderColor: 'primary.main',
+                      color: 'primary.main',
+                      '&:hover': {
+                        backgroundColor: 'primary.main',
+                        color: 'white',
+                        transform: 'translateY(-2px)',
+                      },
+                      transition: 'all 0.3s ease-in-out'
                       }}
                     >
                       Verificar
@@ -591,6 +711,159 @@ const Education = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
         </motion.div>
+
+        {/* Modal de previsualización de certificado */}
+        <Modal
+          open={modalOpen}
+          onClose={handleCloseModal}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            p: 2,
+            overflowY: 'auto'
+          }}
+        >
+          <Box
+            sx={{
+              position: 'relative',
+              maxWidth: '95vw',
+              maxHeight: '95vh',
+              outline: 'none',
+              display: 'flex',
+              flexDirection: 'column',
+              my: 'auto'
+            }}
+          >
+            {/* Botón de cerrar */}
+            <IconButton
+              onClick={handleCloseModal}
+              sx={{
+                position: 'absolute',
+                top: -16,
+                right: -16,
+                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                color: 'white',
+                zIndex: 1000,
+                '&:hover': {
+                  backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                  transform: 'scale(1.1)'
+                }
+              }}
+            >
+              <Close />
+            </IconButton>
+
+            {/* Contenedor scrolleable de la imagen */}
+            {selectedImage && (
+              <Box
+                sx={{
+                  backgroundColor: 'white',
+                  borderRadius: 2,
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)',
+                  border: '4px solid white',
+                  maxHeight: '90vh',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}
+              >
+                {/* Área scrolleable de la imagen */}
+                <Box
+                  sx={{
+                    overflow: 'auto',
+                    maxHeight: 'calc(90vh - 80px)', // Restamos espacio para el título
+                    '&::-webkit-scrollbar': {
+                      width: '8px',
+                    },
+                    '&::-webkit-scrollbar-track': {
+                      backgroundColor: 'rgba(0,0,0,0.1)',
+                    },
+                    '&::-webkit-scrollbar-thumb': {
+                      backgroundColor: 'rgba(0,0,0,0.3)',
+                      borderRadius: '4px',
+                      '&:hover': {
+                        backgroundColor: 'rgba(0,0,0,0.5)',
+                      }
+                    }
+                  }}
+                >
+                  <img
+                    src={selectedImage.src}
+                    alt={selectedImage.alt}
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      display: 'block',
+                      minWidth: '300px', // Ancho mínimo para legibilidad
+                    }}
+                    onError={(e) => {
+                      // Fallback si la imagen no carga
+                      const target = e.currentTarget as HTMLImageElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        parent.innerHTML = `
+                          <div style="
+                            width: 100%; 
+                            height: 300px; 
+                            display: flex; 
+                            align-items: center; 
+                            justify-content: center; 
+                            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+                            color: white;
+                            font-size: 24px;
+                            font-weight: bold;
+                            flex-direction: column;
+                            text-align: center;
+                          ">
+                            <div style="font-size: 48px; margin-bottom: 8px;">🏆</div>
+                            <div style="font-size: 16px;">Certificado no disponible</div>
+                            <div style="font-size: 12px; margin-top: 8px; opacity: 0.8;">Verifica que la imagen esté en la carpeta public</div>
+                          </div>
+                        `;
+                      }
+                    }}
+                  />
+                </Box>
+                
+                {/* Título del certificado - Fixed en la parte inferior */}
+                <Box
+                  sx={{
+                    p: 2,
+                    backgroundColor: theme.palette.mode === 'dark' 
+                      ? 'rgba(30, 41, 59, 0.95)'
+                      : 'white',
+                    borderTop: '1px solid rgba(0, 0, 0, 0.1)',
+                    flexShrink: 0
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    fontWeight={600}
+                    textAlign="center"
+                    sx={{
+                      color: theme.palette.mode === 'dark' ? 'white' : 'text.primary'
+                    }}
+                  >
+                    {selectedImage.title}
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    textAlign="center"
+                    display="block"
+                    sx={{
+                      color: theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.7)' : 'text.secondary',
+                      mt: 0.5
+                    }}
+                  >
+                    Desplázate para ver el certificado completo
+                  </Typography>
+                </Box>
+              </Box>
+            )}
+          </Box>
+        </Modal>
       </Container>
     </Box>
   );
