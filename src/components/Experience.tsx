@@ -6,7 +6,6 @@ import {
   Card,
   CardContent,
   Chip,
-  Stack,
   Avatar,
   List,
   ListItem,
@@ -250,7 +249,7 @@ const Experience = () => {
                             {experience.company}
                           </Typography>
                           
-                          <Stack direction="row" spacing={2} sx={{ flexWrap: 'wrap', gap: 1 }}>
+                          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 3 }}>
                             <Chip
                               icon={<DateRange />}
                               label={experience.period}
@@ -258,7 +257,8 @@ const Experience = () => {
                               variant="outlined"
                               sx={{ 
                                 borderColor: theme.palette.mode === 'dark' ? '#60A5FA' : 'primary.main', 
-                                color: theme.palette.mode === 'dark' ? '#60A5FA' : 'primary.main' 
+                                color: theme.palette.mode === 'dark' ? '#60A5FA' : 'primary.main',
+                                margin: 0
                               }}
                             />
                             <Chip
@@ -268,7 +268,8 @@ const Experience = () => {
                               variant="outlined"
                               sx={{ 
                                 borderColor: theme.palette.mode === 'dark' ? '#60A5FA' : 'primary.main', 
-                                color: theme.palette.mode === 'dark' ? '#60A5FA' : 'primary.main' 
+                                color: theme.palette.mode === 'dark' ? '#60A5FA' : 'primary.main',
+                                margin: 0
                               }}
                             />
                             <Chip
@@ -278,10 +279,11 @@ const Experience = () => {
                               variant="outlined"
                               sx={{ 
                                 borderColor: theme.palette.mode === 'dark' ? '#60A5FA' : 'primary.main', 
-                                color: theme.palette.mode === 'dark' ? '#60A5FA' : 'primary.main' 
+                                color: theme.palette.mode === 'dark' ? '#60A5FA' : 'primary.main',
+                                margin: 0
                               }}
                             />
-                          </Stack>
+                          </Box>
                         </Box>
 
                         {/* Description */}
@@ -349,7 +351,7 @@ const Experience = () => {
                           >
                             Tecnologías utilizadas:
                           </Typography>
-                          <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap', gap: 1 }}>
+                          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                             {experience.technologies.map((tech) => (
                               <Chip
                                 key={tech}
@@ -366,6 +368,7 @@ const Experience = () => {
                                   border: theme.palette.mode === 'dark'
                                     ? '1px solid rgba(59, 130, 246, 0.3)'
                                     : `1px solid ${experience.color}40`,
+                                  margin: 0,
                                   '&:hover': {
                                     backgroundColor: theme.palette.mode === 'dark'
                                       ? '#60A5FA'
@@ -375,7 +378,7 @@ const Experience = () => {
                                 }}
                               />
                             ))}
-                          </Stack>
+                          </Box>
                         </Box>
 
                         {/* Projects */}

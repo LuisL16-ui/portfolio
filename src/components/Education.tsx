@@ -336,7 +336,7 @@ const Education = () => {
                           >
                             Competencias adquiridas
                           </Typography>
-                          <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap', gap: 1 }}>
+                          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                             {edu.skills.map((skill) => (
                               <Chip
                                 key={skill}
@@ -352,11 +352,12 @@ const Education = () => {
                                   fontWeight: 500,
                                   border: theme.palette.mode === 'dark'
                                     ? '1px solid rgba(59, 130, 246, 0.3)'
-                                    : `1px solid ${edu.color}40`
+                                    : `1px solid ${edu.color}40`,
+                                  margin: 0
                                 }}
                               />
                             ))}
-                          </Stack>
+                          </Box>
                         </Paper>
                       </Box>
                     </Box>
