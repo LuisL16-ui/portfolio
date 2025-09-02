@@ -252,7 +252,7 @@ const Footer = () => {
           <Divider sx={{ my: 4, borderColor: 'grey.700' }} />
           <Box sx={{ textAlign: 'center' }}>
             <Typography variant="body2" color="grey.400" sx={{ lineHeight: 1.6 }}>
-              Este portfolio fue desarrollado con React, TypeScript, Material-UI y Framer Motion.
+              Este portafolio fue desarrollado con React, TypeScript, Material-UI y Framer Motion.
               <br />
               Optimizado para rendimiento y accesibilidad web.
             </Typography>

@@ -59,7 +59,7 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "Portfolio Personal",
+      title: "Portafolio Personal",
       description: "Sitio web personal desarrollado con React y Material-UI, mostrando mis habilidades y proyectos de desarrollo web.",
       image: "https://imgs.search.brave.com/vvfZfG06PGYuoz-7mGPBGZuOXanMgyL8RabOdAZaGPg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/dmVjdG9yLWdyYXRp/cy9mb25kby1wYW50/YWxsYS1uZW9uLXBy/b3hpbWFtZW50ZV8y/My0yMTQ4ODkxMTc5/LmpwZz9zZW10PWFp/c19oeWJyaWQmdz03/NDA",
       technologies: ["React", "TypeScript", "Material-UI", "Vite"],
