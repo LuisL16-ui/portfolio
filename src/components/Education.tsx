@@ -103,7 +103,7 @@ const Education = () => {
       description: "Desarrollo de habilidades en JavaScript",
       skills: ["JavaScript","DOM","Fetch API", "Async/Await","localStorage"],
       link: "https://www.udemy.com/certificate/UC-0c2da7a5-2af4-4b35-a976-18172db03640/",
-      badge: "/portfolio/UC-0c2da7a5-2af4-4b35-a976-18172db03640.jpg"
+      badge: "/UC-0c2da7a5-2af4-4b35-a976-18172db03640.jpg"
     },
     {
       id: 2,
@@ -114,7 +114,7 @@ const Education = () => {
       description: "Dominio de Node.js para desarrollo de aplicaciones web",
       skills: ["Node.js", "Express", "MongoDB","MySQL","PostgreSQL","REST API","ORMs"],
       link: "https://www.udemy.com/certificate/UC-39f63f80-0d6e-465f-b461-78d131b9a2ef/",
-      badge: "/portfolio/UC-39f63f80-0d6e-465f-b461-78d131b9a2ef.jpg"
+      badge: "/UC-39f63f80-0d6e-465f-b461-78d131b9a2ef.jpg"
     },
     {
       id: 3,
