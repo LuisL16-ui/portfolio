@@ -98,14 +98,6 @@ const Footer = () => {
               <Typography variant="h3" fontWeight={700} gutterBottom>
                 José Luis López
               </Typography>
-              <Typography 
-                variant="body1" 
-                color="grey.300" 
-                sx={{ mb: 3, lineHeight: 1.7 }}
-              >
-                Desarrollador Full-Stack especializado en crear experiencias web excepcionales. 
-                Transformo ideas en soluciones digitales innovadoras que impulsan el crecimiento de tu negocio.
-              </Typography>
               
               <Stack direction="row" spacing={2} alignItems="center">
                 <Typography variant="body2" color="grey.300">

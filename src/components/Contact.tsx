@@ -23,8 +23,7 @@ import {
   LinkedIn,
   Twitter,
   Send,
-  Chat,
-  Event
+  WhatsApp,
 } from '@mui/icons-material';
 import { createTitleStyles, createDividerStyles } from '../styles/cardStyles';
 
@@ -121,15 +120,13 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: GitHub, label: "GitHub", href: "#", username: "#", color: "#333" },
-    { icon: LinkedIn, label: "LinkedIn", href: "#", username: "#", color: "#0077B5" },
+    { icon: GitHub, label: "GitHub", href: "https://github.com/LuisL16-ui", username: "#", color: "#333" },
+    { icon: LinkedIn, label: "LinkedIn", href: "https://www.linkedin.com/in/luis-lopez-7a33a9281/", username: "#", color: "#0077B5" },
     { icon: Twitter, label: "Twitter", href: "#", username: "#", color: "#1DA1F2" }
   ];
 
   const quickActions = [
-    { icon: Chat, title: "Chat rápido", description: "Envíame un mensaje directo", action: "Abrir WhatsApp", href: "https://wa.me/526674042841", color: "#25D366" },
-    { icon: Event, title: "Reunión virtual", description: "Agenda una videollamada", action: "Programar reunión", href: "#", color: "#3B82F6" },
-    { icon: Email, title: "Consulta por email", description: "Para proyectos", action: "Enviar email", href: "mailto:joselp.02@outlook.com", color: "#8B5CF6" }
+    { icon: WhatsApp, title: "Chat rápido", description: "Envíame un mensaje directo", action: "Abrir WhatsApp", href: "https://wa.me/526674042841", color: "#25D366" },
   ];
 
   return (
@@ -179,21 +176,37 @@ const Contact = () => {
 
           <Box sx={{ flex: { xs: 1, lg: 5 }, display: 'flex', flexDirection: 'column', gap: 4 }}>
             <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-              <Card sx={{ p: 3, background: theme.palette.background.paper, border: `1px solid ${theme.palette.divider}` }}>
+                <Card sx={{ p: 3, background: theme.palette.background.paper, border: `1px solid ${theme.palette.divider}` }}>
                 <Typography variant="h5" gutterBottom>Información de contacto</Typography>
                 <Stack spacing={3}>
                   {contactInfo.map((info, index) => (
-                    <Paper key={index} sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, cursor: 'pointer', transition: '0.3s', '&:hover': { transform: 'translateY(-3px)', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' } }} component="a" href={info.href} target="_blank" rel="noopener noreferrer">
-                      <Avatar sx={{ bgcolor: 'primary.main', color: 'white' }}>{<info.icon />}</Avatar>
-                      <Box>
+                  <Paper
+                    key={index}
+                    sx={{
+                      p: 2,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 2,
+                      cursor: 'pointer',
+                      transition: '0.3s',
+                      '&:hover': { transform: 'translateY(-3px)', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' },
+                      textDecoration: 'none'
+                    }}
+                    component="a"
+                    href={info.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Avatar sx={{ bgcolor: 'primary.main', color: 'white' }}>{<info.icon />}</Avatar>
+                    <Box>
                       <Typography variant="subtitle1" fontWeight={600} sx={{ textDecoration: 'none' }}>{info.label}</Typography>
                       <Typography variant="body2" sx={{ textDecoration: 'none' }}>{info.value}</Typography>
                       <Typography variant="caption" color="text.secondary" sx={{ textDecoration: 'none' }}>{info.description}</Typography>
-                      </Box>
-                    </Paper>
+                    </Box>
+                  </Paper>
                   ))}
                 </Stack>
-              </Card>
+                </Card>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}>

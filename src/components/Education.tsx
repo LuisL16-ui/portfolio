@@ -25,7 +25,6 @@ import {
   DateRange,
   LocationOn,
   Launch,
-  CheckCircle,
   Visibility,
   Close
 } from '@mui/icons-material';
@@ -129,12 +128,6 @@ const Education = () => {
     },
   ];
 
-  const continuousLearning = [
-    "Estudiante activo en Ingeniería en Sistemas Computacionales",
-    "Aprendizaje autodidacta a través de documentación oficial y tutoriales",
-    "Práctica constante con proyectos personales y académicos",
-    "Experimentación con nuevas tecnologías en tiempo libre"
-  ];
 
   return (
     <Box
@@ -620,89 +613,6 @@ const Education = () => {
             ))}
           </Box>
         </Box>
-
-        {/* Continuous Learning */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <Card
-            sx={{
-              background: theme.palette.mode === 'dark'
-                ? 'linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.95) 100%)'
-                : 'linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(255, 255, 255, 1) 100%)',
-              border: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(59, 130, 246, 0.2)' : 'rgba(59, 130, 246, 0.1)'}`,
-              p: 4
-            }}
-          >
-            <Typography variant="h4" fontWeight={700} sx={{ textAlign: 'center', mb: 4 }}>
-              Compromiso con el Aprendizaje Continuo
-            </Typography>
-            
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, alignItems: 'center' }}>
-              <Box sx={{ flex: 1 }}>
-                <Typography
-                  variant="body1"
-                  color="text.secondary"
-                  sx={{ mb: 3, lineHeight: 1.7 }}
-                >
-                  La tecnología evoluciona constantemente, y mi pasión por el aprendizaje me mantiene 
-                  actualizado con las últimas tendencias y mejores prácticas del desarrollo de software.
-                </Typography>
-                
-                <List>
-                  {continuousLearning.map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                    >
-                      <ListItem sx={{ pl: 0 }}>
-                        <ListItemIcon sx={{ minWidth: 24 }}>
-                          <CheckCircle sx={{ color: 'primary.main', fontSize: 16 }} />
-                        </ListItemIcon>
-                        <ListItemText
-                          primary={item}
-                          primaryTypographyProps={{
-                            variant: 'body2',
-                            sx: { lineHeight: 1.6 }
-                          }}
-                        />
-                      </ListItem>
-                    </motion.div>
-                  ))}
-                </List>
-              </Box>
-
-              <Box sx={{ textAlign: 'center' }}>
-                <motion.div
-                  animate={{ rotate: [0, 5, -5, 0] }}
-                  transition={{ duration: 6, repeat: Infinity }}
-                >
-                  <Avatar
-                    sx={{
-                      width: 120,
-                      height: 120,
-                      fontSize: 60,
-                      bgcolor: 'transparent',
-                      mx: 'auto',
-                      mb: 2
-                    }}
-                  >
-                    🎓
-                  </Avatar>
-                </motion.div>
-                <Typography variant="h6" fontWeight={600} color="primary">
-                  Siempre aprendiendo, siempre creciendo
-                </Typography>
-              </Box>
-            </Box>
-          </Card>
-        </motion.div>
 
         {/* Call to Action */}
         <motion.div

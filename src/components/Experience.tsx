@@ -406,33 +406,6 @@ const Experience = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <Card
-            sx={{
-              mt: 8,
-              p: 4,
-              textAlign: 'center',
-              background: theme.palette.gradient?.primary || 'linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)',
-              color: 'white'
-            }}
-          >
-            <Avatar
-              sx={{
-                bgcolor: 'rgba(255, 255, 255, 0.2)',
-                mx: 'auto',
-                mb: 2,
-                width: 64,
-                height: 64
-              }}
-            >
-              <TrendingUp sx={{ fontSize: 32 }} />
-            </Avatar>
-            <Typography variant="h5" fontWeight={700} sx={{ mb: 2 }}>
-              En constante crecimiento
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 3, opacity: 0.9, maxWidth: 500, mx: 'auto' }}>
-              Cada experiencia me ha aportado nuevos conocimientos y perspectivas. Siempre busco desafíos que me permitan seguir evolucionando como profesional.
-            </Typography>
-          </Card>
         </motion.div>
       </Container>
     </Box>
